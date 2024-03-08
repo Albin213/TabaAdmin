@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+    --primary: transparent;
+    --secondary: rgb(98, 97, 99);
+  }
+
+  *{
+    font-family: "Poppins" ,sans-serif;
+    scrollbar-width: thin;
+   scrollbar-color: var(--secondary) var(--primary);
+ }
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--primary);
+    border-radius: 6px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 14px;
+    border: 3px solid var(--primary);
+  }
+
+
+  
+
+
+.bg-login{
+    background-image: url('/bg-lawyer.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-admin {
+    background-image: url('/scales-of-justice.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.bg-member-approval {
+  background-image: url('/member-request.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+}
+
+.bg-members-list {
+  background-image: url('/list.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+}
+
+.bg-payment {
+  background-image: url('/payment.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+}
+
+.bg-reset {
+  background-image: url('/reset.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+}
+
+.bg-committee {
+  background-image: url('/committee.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+}
+
+.bg-notification {
+  background-image: url('/notification.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+}
+
+
+.bg-reports {
+  background-image: url('/reports.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+}
+
+.bg-aboutus {
+  background-image: url('/aboutus.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+}
