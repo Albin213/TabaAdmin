@@ -728,6 +728,7 @@ function ExecutiveCommittee() {
     name: "",
     image: null,
     description: "",
+    phone : "",
     imagePreview: null,
     imageWidth: null,
     imageHeight: null,
@@ -737,7 +738,7 @@ function ExecutiveCommittee() {
 
   const [loggedIn, setLoggedIn] = useState("");
 
-
+  console.log(data);
 
 
   useEffect(() => {
@@ -812,6 +813,7 @@ function ExecutiveCommittee() {
     const formData = new FormData();
     formData.append("name", updateData.name);
     formData.append("description", updateData.description);
+    formData.append("phone", updateData.phone);
     if (updateData.image) {
       formData.append("image", updateData.image);
     }
@@ -831,13 +833,14 @@ function ExecutiveCommittee() {
         ...updateData,
         name: res.data.name,
         image: res.data.image,
+        phone: res.data.phone,
       });
 
       alert(res.data.message);
 
       setTimeout(() => {
         window.location.href = "/admin/executiveCommittee";
-      }, 1000);
+      }, 500);
     } catch (err) {
       // console.log("error", err.response.data);
       alert(err.response.data.message);
@@ -864,7 +867,7 @@ function ExecutiveCommittee() {
                 <h1 className="text-3xl p-2">Executive Committee</h1>
               </div>
     
-              <div className="flex justify-between h-[350px] mt-5">
+              <div className="flex justify-between h-[400px] mt-5">
                 {/* President Card */}
                 {!updatePresident ? (
                   <div className="w-[25%] h-full p-3 bg-zinc-300 text-center border-white border-[0.5px] rounded-[12px]">
@@ -877,6 +880,7 @@ function ExecutiveCommittee() {
                       />
                     </div>
                     <p className="text-xl mt-1">{president && president.name}</p>
+                    <p className="text-lg mt-1">+91 {president && president.phone }</p>
                     <button
                       className="w-[65%] h-[40px] mt-3 bg-[#ffffffc1] border-black border-[0.5px]  rounded-md font-bold hover:bg-slate-300 hover:text-black"
                       onClick={() => setUpdatePresident(true)}
@@ -925,6 +929,14 @@ function ExecutiveCommittee() {
                       value={updateData.name}
                       onChange={(event) => handleMemberChange(event, president)}
                     />
+                    <input
+                      className="h-8 p-2 text-sm mt-1 border-black border-2"
+                      type="number"
+                      placeholder="President's Phone"
+                      name="phone"
+                      value={updateData.phone}
+                      onChange={(event) => handleMemberChange(event, president)}
+                    />
                     <button
                       className="w-[65%] h-[40px] mt-3 bg-[hsla(0,0%,100%,0.2)] border-black border-[0.5px]  rounded-md font-bold hover:bg-slate-300 hover:text-black"
                       onClick={() => {
@@ -949,6 +961,7 @@ function ExecutiveCommittee() {
                       />
                     </div>
                     <p className="text-xl mt-1">{secretary && secretary.name}</p>
+                    <p className="text-lg mt-1">+91 {secretary && secretary.phone }</p>
                     <button
                       className="w-[65%] h-[40px] mt-3 bg-[#ffffffc1] border-black border-[0.5px]  rounded-md font-bold hover:bg-slate-300 hover:text-black"
                       onClick={() => setUpdateSecretary(true)}
@@ -1000,6 +1013,14 @@ function ExecutiveCommittee() {
                       value={updateData.name}
                       onChange={(event) => handleMemberChange(event, secretary)}
                     />
+                    <input
+                      className="h-8 p-2 text-sm mt-1 border-black border-2"
+                      type="number"
+                      placeholder="Secretary's Phone"
+                      name="phone"
+                      value={updateData.phone}
+                      onChange={(event) => handleMemberChange(event, secretary)}
+                    />
                     {/* Add submit button */}
                     <button
                       className="w-[65%] h-[40px] mt-3 bg-[hsla(0,0%,100%,0.2)] border-black border-[0.5px]  rounded-md font-bold hover:bg-slate-300 hover:text-black"
@@ -1025,6 +1046,7 @@ function ExecutiveCommittee() {
                       />
                     </div>
                     <p className="text-xl mt-1">{librarian && librarian.name}</p>
+                    <p className="text-lg mt-1">+91 {librarian && librarian.phone }</p>
                     <button
                       className="w-[65%] h-[40px] mt-3 bg-[#ffffffc1] border-black border-[0.5px]  rounded-md font-bold hover:bg-slate-300 hover:text-black"
                       onClick={() => setUpdateLibrarian(true)}
@@ -1076,6 +1098,14 @@ function ExecutiveCommittee() {
                       value={updateData.name}
                       onChange={(event) => handleMemberChange(event, librarian)}
                     />
+                    <input
+                      className="h-8 p-2 text-sm mt-1 border-black border-2"
+                      type="number"
+                      placeholder="Librarian's Phone"
+                      name="phone"
+                      value={updateData.phone}
+                      onChange={(event) => handleMemberChange(event, librarian)}
+                    />
                     {/* Add submit button */}
                     <button
                       className="w-[65%] h-[40px] mt-3 bg-[hsla(0,0%,100%,0.2)] border-black border-[0.5px]  rounded-md font-bold hover:bg-slate-300 hover:text-black"
@@ -1102,7 +1132,7 @@ function ExecutiveCommittee() {
                   execMembersArray.map((execMember, index) => {
                     return (
                       !updateExecMember  ? (
-                        <div className="w-[23%] h-[350px] p-3 mb-3 bg-zinc-300 text-center border-white border-[0.5px] rounded-[12px]">
+                        <div className="w-[26%] h-[400px] p-3 mb-5 bg-zinc-300 text-center border-white border-[0.5px] rounded-[12px]">
                           <p className="text-2xl">Executive Member</p>
                           <div className="w-[70%] h-[200px] mx-auto">
                             <img
@@ -1112,6 +1142,7 @@ function ExecutiveCommittee() {
                             />
                           </div>
                           <p className="text-xl mt-1">{execMember && execMember.name}</p>
+                          <p className="text-lg mt-1">+91 {execMember && execMember.phone}</p>
                           <button
                             className="w-[65%] h-[40px] mt-3 bg-[#ffffffc1] border-black border-[0.5px]  rounded-md font-bold hover:bg-slate-300 hover:text-black"
                             onClick={() => {setUpdateExecMember(true); setEditableMember(execMember._id)}}
@@ -1164,6 +1195,14 @@ function ExecutiveCommittee() {
                             placeholder="member name"
                             name="name"
                             value={updateData.name}
+                            onChange={(event) => handleMemberChange(event, execMember)}
+                          />
+                          <input
+                            className="h-8 p-2 text-sm mt-1 border-black border-2"
+                            type="number"
+                            placeholder="member phone"
+                            name="phone"
+                            value={updateData.phone}
                             onChange={(event) => handleMemberChange(event, execMember)}
                           />
                           {/* Add submit button */}
